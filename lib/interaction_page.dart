@@ -15,14 +15,40 @@ class InteractionPage extends StatelessWidget {
         children: [
           SpaceH10(),
           OutlinedButton(
-              onPressed: () {
-                final SnackBar tampil = SnackBar(
-                  content: const Text("Ini data di SnackBar"),
-                  action: SnackBarAction(label: "tutup", onPressed: () {}),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(tampil);
-              },
-              child: Text("Klik SnackBar"))
+            onPressed: () {
+              final SnackBar tampil = SnackBar(
+                content: const Text("Ini data di SnackBar"),
+                action: SnackBarAction(label: "tutup", onPressed: () {}),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(tampil);
+            },
+            child: Text("Klik SnackBar"),
+          ),
+          const SpaceH10(),
+          OutlinedButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text("Title Dialog"),
+                  content: const Text("Isi Konten Dialog"),
+                  actions: [
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("OK"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text("Cancel"),
+                    ),
+                  ],
+                ),
+              );
+            },
+            child: null,
+          ),
         ],
       ),
     );
